@@ -1,26 +1,57 @@
 {
     "name": "vscode-extendscript",
-    "displayName": "vscode-extendscript",
-    "description": "ExtendScript Support in VSCode",
+    "displayName": "ExtendScript",
+    "description": "Adobe ExtendScript Language Support for Visual Studio Code",
     "version": "0.0.1",
-    "publisher": "MagicPro1994",
+    "author": "Red J",
+    "publisher": "magicpro1994",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MagicPro1994/vscode-extendscript.git"
+    },
+    "bugs": {
+        "url": "https://github.com/MagicPro1994/vscode-extendscript/issues"
+    },
     "engines": {
         "vscode": "^1.22.0"
     },
     "categories": [
-        "Other"
+        "Languages",
+        "Snippets",
+        "Linters"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onLanguage:extendscript"
     ],
     "main": "./out/extension",
     "contributes": {
-        "commands": [
+        "languages": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+                "id": "extendscript",
+                "aliases": [
+                    "ExtendScript",
+                    "extendscript"
+                ],
+                "extensions": [
+                    ".jsx",
+                    ".jsxinc"
+                ],
+                "filenames": [
+                    "tslint.json"
+                ],
+                "configuration": "./language-configuration.json"
             }
-        ]
+        ],
+        "grammars": [{
+            "language": "jsx",
+            "scopeName": "source.jsx",
+            "path": "./syntaxes/jsx.tmLanguage"
+        }],
+        "snippets": [
+            {
+                "language": "jsx",
+                "path": "./snippets/snippets.json"
+            }]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
